@@ -8,15 +8,19 @@ const sumAll = function(...range) {
         return "ERROR";
     }
 
-    while(nextValueToSum < endOfSum){
+    if(range.every((value)=> Number.isInteger(value))){
+        while(nextValueToSum < endOfSum){
 
-        range.splice(1, 0, nextValueToSum);
-        nextValueToSum++;
-
+            range.splice(1, 0, nextValueToSum);
+            nextValueToSum++;
+    
+        }
+    
+        let sum = range.reduce((acc, value)=> acc+=value);
+        return sum;
     }
 
-    let sum = range.reduce((acc, value)=> acc+=value);
-    return sum;
+    return "ERROR";
 };
 
 // Do not edit below this line
